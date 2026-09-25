@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Congo Logement",
-    "slug": "congologement",
+    "slug": "app-congologement",
     "version": "1.0.0",
     "sdkVersion": "57.0.0",
     "orientation": "portrait",
@@ -51,7 +51,7 @@
     },
     "extra": {
       "selectedIconUrl": "https://sqgedrruthtbkskkjeqa.supabase.co/storage/v1/object/public/projects/b97f376a-c835-4573-94a3-d7bf17b5d9cf/fs/assets/images/icon.png?t=1790328901449",
-      "selectedIconId": "9d2135ba-2a00-4de5-8ca7-08fb463e7217"
+      "selectedIconId": "c77c2c79-2346-4b13-871f-b6b94f261c12"
     }
   }
 }
