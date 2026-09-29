@@ -32,3 +32,5 @@ jobs:
         run: eas build --platform android --non-interactive --profile production
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EAS_BUILD_NO_EXPO_GO_WARNING: true
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
