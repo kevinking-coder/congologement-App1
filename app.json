@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Congo Logement",
+    "slug": "congo-logement",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "congologement",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.congologement.app"
+    },
+    "android": {
+      "package": "com.congologement.app"
+    }
+  }
+}
