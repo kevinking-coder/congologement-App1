@@ -1,21 +1,24 @@
 {
   "expo": {
     "name": "Congo Logement",
-    "slug": "congo-logement",
+    "slug": "congologement",
     "owner": "brak.iddy",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "scheme": "congologement",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.congologement.app"
     },
     "android": {
       "package": "com.congologement.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "280cf221-d209-472a-9dda-17d43291a2e7"
+      }
     }
   }
 }
