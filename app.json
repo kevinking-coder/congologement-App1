@@ -2,7 +2,7 @@
   "expo": {
     "name": "Congo Logement",
     "slug": "congologement",
-    "owner": "brak.iddy",
+    "owner": "abundi8",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -19,7 +19,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "280cf221-d209-472a-9dda-17d43291a2e7"
+        "projectId": "7055e66d-e3ed-41d3-bbdc-02d415633def"
       }
     }
   }
