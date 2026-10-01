@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Congo Logement",
-    "slug": "congo-logement",
-    "owner": "brak.iddy",
+    "slug": "congologement",
+    "owner": "abundi8",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
