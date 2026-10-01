@@ -27,6 +27,11 @@
     "android": {
       "package": "com.congologement.app",
       "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7055e66d-e3ed-41d3-bbdc-02d415633def"
+      }
     }
   }
 }
