@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Congo Logement",
+    "slug": "congo-logement",
+    "owner": "brak.iddy",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "congologement",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Autoriser Congo Logement à accéder à vos photos pour illustrer vos annonces.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.congologement.app"
+    },
+    "android": {
+      "package": "com.congologement.app",
+      "versionCode": 1
+    }
+  }
+}
