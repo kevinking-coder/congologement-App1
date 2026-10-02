@@ -4,6 +4,15 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      build_profile:
+        description: Android build type
+        required: true
+        type: choice
+        options:
+          - production
+          - preview
+        default: production
 
 jobs:
   android-build:
@@ -35,29 +44,47 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Build Android preview APK with EAS
-        run: eas build --platform android --non-interactive --wait --json --profile preview > eas-build.json
+      - name: Select Android build profile
+        id: profile
+        env:
+          REQUESTED_PROFILE: ${{ inputs.build_profile }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "name=$REQUESTED_PROFILE" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=preview" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build Android artifact with EAS
+        run: eas build --platform android --non-interactive --wait --json --profile "${{ steps.profile.outputs.name }}" > eas-build.json
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          BUILD_PROFILE: ${{ steps.profile.outputs.name }}
 
-      - name: Add APK download and install QR links to summary
+      - name: Add build download links to summary
         run: |
           node <<'NODE'
           const fs = require('node:fs');
           const builds = JSON.parse(fs.readFileSync('eas-build.json', 'utf8'));
           const build = Array.isArray(builds) ? builds[0] : builds;
           const buildId = build?.id;
-          const apkUrl = build?.artifacts?.buildUrl;
+          const artifactUrl = build?.artifacts?.buildUrl;
+          const profile = process.env.BUILD_PROFILE;
 
-          if (!buildId || !apkUrl) {
-            throw new Error('EAS completed without returning a build ID and APK download URL.');
+          if (!buildId || !artifactUrl) {
+            throw new Error('EAS completed without returning a build ID and artifact download URL.');
           }
 
           const buildPageUrl = `https://expo.dev/accounts/abundi8/projects/congologement/builds/${buildId}`;
-          fs.appendFileSync(
-            process.env.GITHUB_STEP_SUMMARY,
-            `## Android preview APK\n\n` +
-              `- [Download APK](${apkUrl}) — open this link on your Android phone to install the preview.\n` +
-              `- [Open EAS build page](${buildPageUrl}) — view the installation QR code and build details.\n`,
-          );
+          const summary = profile === 'production'
+            ? `## Android production AAB\n\n` +
+              `- [Download AAB](${artifactUrl}) and upload it to Google Play Console.\n` +
+              `- [Open EAS build page](${buildPageUrl}) for build details.\n`
+            : `## Android preview APK\n\n` +
+              `- [Download APK](${artifactUrl}) — open this link on your Android phone to install the preview.\n` +
+              `- [Open EAS build page](${buildPageUrl}) for build details and the installation QR code.\n`;
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
           NODE
+        env:
+          BUILD_PROFILE: ${{ steps.profile.outputs.name }}
