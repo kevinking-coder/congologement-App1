@@ -31,6 +31,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Verify Babel preset
+        run: |
+          node <<'NODE'
+          const dependencies = require('./package.json').dependencies;
+          if (!dependencies?.['babel-preset-expo']) {
+            throw new Error('babel-preset-expo must be declared in dependencies for EAS production builds.');
+          }
+          console.log('Resolved Babel preset:', require.resolve('babel-preset-expo'));
+          NODE
+
       - name: Verify Expo icon assets
         run: |
           if [ ! -f assets/icon.png ]; then
