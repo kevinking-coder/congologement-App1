@@ -28,7 +28,30 @@ jobs:
       - name: Install EAS CLI
         run: npm install -g eas-cli
 
-      - name: Build Android with EAS
-        run: eas build --platform android --non-interactive --profile production
+      - name: Build Android preview APK with EAS
+        run: eas build --platform android --non-interactive --wait --json --profile preview > eas-build.json
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Add APK download and install QR links to summary
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const builds = JSON.parse(fs.readFileSync('eas-build.json', 'utf8'));
+          const build = Array.isArray(builds) ? builds[0] : builds;
+          const buildId = build?.id;
+          const apkUrl = build?.artifacts?.buildUrl;
+
+          if (!buildId || !apkUrl) {
+            throw new Error('EAS completed without returning a build ID and APK download URL.');
+          }
+
+          const buildPageUrl = `https://expo.dev/accounts/abundi8/projects/congologement/builds/${buildId}`;
+          fs.appendFileSync(
+            process.env.GITHUB_STEP_SUMMARY,
+            `## Android preview APK\n\n` +
+              `- [Download APK](${apkUrl}) — open this link on your Android phone to install the preview.\n` +
+              `- [Open EAS build page](${buildPageUrl}) — view the installation QR code and build details.\n`,
+          );
+          NODE
+
