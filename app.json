@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Congo Logement",
-    "slug": "congologement",
-    "owner": "abundi8",
+    "slug": "congologementapp",
+    "owner": "mindflow3",
     "version": "1.0.15",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
@@ -35,7 +35,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "7055e66d-e3ed-41d3-bbdc-02d415633def"
+        "projectId": "a32dca5f-1c52-48eb-a8d4-71aa6ea4c0f8"
       }
     }
   }
