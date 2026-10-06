@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Congo Logement",
+    "slug": "congologement",
+    "owner": "abundi8",
+    "version": "1.0.15",
+    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "congologement",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Autoriser Congo Logement à accéder à vos photos pour illustrer vos annonces.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.congologement.app"
+    },
+    "android": {
+      "package": "com.congologement.app",
+      "versionCode": 15,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#007FFF"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7055e66d-e3ed-41d3-bbdc-02d415633def"
+      }
+    }
+  }
+}
