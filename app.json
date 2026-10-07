@@ -3,7 +3,7 @@
     "name": "Congo Logement",
     "slug": "congologementapp",
     "owner": "mindflow3",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -27,7 +27,7 @@
     },
     "android": {
       "package": "com.congologement.app",
-      "versionCode": 15,
+      "versionCode": 16,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#007FFF"
