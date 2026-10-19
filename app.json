@@ -3,7 +3,7 @@
     "name": "Congo Logement",
     "slug": "congologementapp",
     "owner": "mindflow3",
-    "version": "1.0.17",
+    "version": "1.0.18",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
