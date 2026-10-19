@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Congo Logement",
-    "slug": "congologementapp",
-    "owner": "mindflow3",
+    "slug": "congo-app",
+    "owner": "brak.iddy",
     "version": "1.0.18",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
@@ -35,7 +35,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "a32dca5f-1c52-48eb-a8d4-71aa6ea4c0f8"
+        "projectId": "ae89b0d6a-e465-4ac9-96cd-c0dbff6f424e"
       }
     }
   }
