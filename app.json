@@ -27,7 +27,7 @@
     },
     "android": {
       "package": "com.congologement.app",
-      "versionCode": 17,
+      "versionCode": 18,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#007FFF"
